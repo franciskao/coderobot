@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  index: 1
+  body: MyText
+  isAnswer: false
+  quiz: 
+
+two:
+  index: 1
+  body: MyText
+  isAnswer: false
+  quiz: 

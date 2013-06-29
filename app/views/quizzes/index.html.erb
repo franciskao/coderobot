@@ -1,0 +1,18 @@
+<h1>Listing Course</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Intro</th>
+    <th>link</th>
+  </tr>
+ 
+  <% @quizzes.each do |quiz| %>
+    <tr>
+      <td><%= quiz.id %></td>
+      <td><%= quiz.title %></td>
+      <td><%= quiz.answer %></td>
+      <td><%= link_to "Detail",course_quiz_path(:id =>quiz.id) %></td>
+    </tr>
+  <% end %>
+</table>

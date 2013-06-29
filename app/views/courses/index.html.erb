@@ -1,0 +1,16 @@
+<h1>Listing posts</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Intro</th>
+  </tr>
+ 
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.title %></td>
+      <td><%= course.intro%></td>
+      <td><%= link_to "Detail",course_path(course) %></td>
+      </tr>
+  <% end %>
+</table>

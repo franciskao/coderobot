@@ -1,0 +1,8 @@
+<p>
+  <strong>选择题:</strong>
+  <%= @quiz.title %>
+</p>
+<form action="/courses/<%= @quiz.course_id %>/quizzes/<%= @quiz.id%>/check" method="post">
+<%= render @quiz.choices %>
+<button>确定</button>
+</form>

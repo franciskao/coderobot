@@ -1,0 +1,36 @@
+
+<% content_for :head do %>
+   <link rel="stylesheet" type="text/css" href="/assets/courses.css.scss" />
+   <script type="text/javascript" src="/assets/jquery.min.js"></script>
+<% end %>
+<p>
+  <strong>标题</strong>
+  <%= @course.title %>
+</p>
+<p>
+  <strong>简介</strong>
+  <%= @course.intro %>
+</p>
+<div id="videoFrame"><iframe id="videoUrl"></iframe></div>
+<%= render @course.videos %>
+<%= render @course.quizzes %>
+<%= render @course.exercises %>
+<script type="text/javascript">
+$(function() {});
+function showVideo(url){
+  $("#videoFrame").show();
+  $("#videoUrl").attr('src',url); 
+}
+function hideVideo(){
+  $("#videoFrame").hide();
+
+}
+function showQuiz(url){
+  $("#videoFrame").show();
+  $("#videoUrl").attr('src',document.URL+'/quizzes/'+url); 
+}
+function showExercise(url){
+  $("#videoFrame").show();
+  $("#videoUrl").attr('src',document.URL+'/exercises/'+url); 
+}
+</script>

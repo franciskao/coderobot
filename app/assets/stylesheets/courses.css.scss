@@ -1,0 +1,27 @@
+// Place all the styles related to the courses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#videoFrame{
+	background-color:#ffffff;
+	width:100%;
+	height:80%;
+	background-color:rgba(0,0,255,0.1);
+	position:relative;
+}
+#videoUrl{
+	width:70%;
+	height:70%;
+	position:relative;
+	top:5%;
+	border:0;
+}
+#videoClose{
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+#quizButton{
+	position:absolute;
+	right:10%;
+	top:30%;
+}
