@@ -1,5 +1,9 @@
 <%= form_for([@course,@quiz]) do |f| %>
   <p>
+    <%= f.label :orderNum %><br>
+    <%= f.text_field :orderNum%>
+  </p>
+  <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>

@@ -1,2 +1,35 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% content_for :head do %> 
+	<link href="/assets/video-js.css" rel="stylesheet">
+	<script src="/assets/video.js"></script>
+  	<link href="/assets/welcome/main.css" rel="stylesheet" type="text/css" />
+<% end %>
+<div align="center">
+    <div id="header"><img src ="/assets/welcome/header_1.gif" border="0" usemap="#Map">
+      <map name="Map" id="Map">
+        <area shape="rect" coords="838,6,915,44" href="/users/new" />
+        <area shape="rect" coords="924,11,985,43" href="login.html" />
+      </map>
+    </div>
+	<div id="video_login">
+	<div id="video_login_source">
+		<object width="600" height="400" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
+		<param name="SRC" value="<%= asset_path("homepage_video.swf") %>">
+		<embed src="<%= asset_path("homepage_video.swf") %>" width="600" height="400"></embed>
+		</object>
+	</div>
+    </div>
+	  <div id="login_backgroud">
+	  	<div id="login_content">
+	    	<div>
+	        	<li>一个故事</li>
+	            <dt>机器人a he机器人c 在星际旅行，发生意外。。。巴拉巴巴拉巴拉拉扒拉扒拉把涛把涛吧巴拉巴巴拉巴拉拉扒拉扒拉把涛把涛吧
+	巴拉巴巴拉巴拉拉扒拉扒拉把涛把涛吧巴拉巴巴拉巴拉拉扒拉扒拉把涛把涛吧巴拉巴巴拉巴拉拉扒拉扒拉把涛把涛吧
+	巴拉巴巴拉巴拉拉扒拉扒拉把涛把涛吧
+	巴拉巴巴拉巴拉拉扒拉扒拉把涛把涛吧</dt>
+	        </div>
+	        <div><a href="/courses"><img src="/assets/welcome/action_now.gif" style="padding:20px;"></a></div>
+	    </div>
+	</div>
+	<div id="footer"><div align="left"><img src="/assets/welcome/about_us.gif"><img src="/assets/welcome/blog.gif"></div>
+  </div>
+</div>

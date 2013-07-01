@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -39,6 +38,7 @@ module Coderobot
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 

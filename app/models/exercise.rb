@@ -1,4 +1,4 @@
 class Exercise < ActiveRecord::Base
   belongs_to :course
-  attr_accessible :answer, :question
+  attr_accessible :answer, :question ,:orderNum
 end

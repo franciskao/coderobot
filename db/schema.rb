@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130629104343) do
+ActiveRecord::Schema.define(:version => 20130630062226) do
 
   create_table "choices", :force => true do |t|
     t.integer  "index"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130629104343) do
     t.integer  "course_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "orderNum"
   end
 
   add_index "exercises", ["course_id"], :name => "index_exercises_on_course_id"
@@ -47,12 +48,25 @@ ActiveRecord::Schema.define(:version => 20130629104343) do
     t.integer  "course_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "orderNum"
   end
 
   add_index "quizzes", ["course_id"], :name => "index_quizzes_on_course_id"
 
+  create_table "users", :force => true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "robotName"
+    t.string   "password"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "email"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
   create_table "videos", :force => true do |t|
-    t.integer  "order"
+    t.integer  "orderNum"
     t.string   "url"
     t.string   "img"
     t.string   "title"

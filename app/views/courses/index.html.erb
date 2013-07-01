@@ -1,16 +1,45 @@
-<h1>Listing posts</h1>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Intro</th>
-  </tr>
- 
-  <% @courses.each do |course| %>
-    <tr>
-      <td><%= course.title %></td>
-      <td><%= course.intro%></td>
-      <td><%= link_to "Detail",course_path(course) %></td>
-      </tr>
-  <% end %>
-</table>
+<% content_for :head do %>
+   <link href="/assets/welcome/main.css" rel="stylesheet" type="text/css" />
+<% end %>
+<div align="center">
+    <div id="header"><a href="/"><img src ="/assets/welcome/header_1.gif" border="0" usemap="#Map"></a>
+      <map name="Map" id="Map">
+        <area shape="rect" coords="838,6,915,44" href="reg.html" />
+        <area shape="rect" coords="924,11,985,43" href="login.html" />
+      </map>
+    </div>
+    <div id="KeyVisual"><img src ="/assets/welcome/keyvisual.gif" border="0"></div>
+      <div id="login_backgroud"><div style="background-color:#718294; height:376px;">
+        <div id="login_t">
+          <table border="0" cellspacing="0" cellpadding="0" background="/assets/welcome/login_pic.gif" height="162" width="380">
+          <tr>
+            <td width="22" height="41">&nbsp;</td>
+            <td width="142" height="41">机器人名字</td>
+            <td width="216" height="41"><form id="form1" name="form1" method="post" action="">
+              <label for="robotname"></label>
+              <input type="text" name="robotname" id="robotname" />
+            </form></td>
+            </tr>
+          <tr>
+            <td height="42">&nbsp;</td>
+            <td height="42">用户名</td>
+            <td height="42"><form id="login" name="form1" method="post" action="">
+              <label for="username"></label>
+              <input type="text" name="username" id="username" />
+            </form></td>
+            </tr>
+          <tr>
+            <td height="42">&nbsp;</td>
+            <td height="42">密码</td>
+            <td height="42"><input type="password" name="password" id="password" /></td>
+            </tr>
+          <tr>
+            <td colspan="3"><div align="center" style="color:#736d44"><%= link_to "开始",course_path(@courses[0]) %></div></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="footer"><div align="left"><img src="/assets/welcome/about_us.gif"><img src="/assets/welcome/blog.gif"></div>
+  </div>
+</div>

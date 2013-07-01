@@ -1,15 +1,21 @@
 <% content_for :head do %>
    <link rel="stylesheet" type="text/css" href="/assets/exercises.css.scss" />
+   <link rel="stylesheet" type="text/css" href="/assets/welcome/main.css" />
    <script type="text/javascript" src="/assets/jquery.min.js"></script>
 <% end %>
+
+<div id="quiz">
 <p>
-  <strong>q:</strong>
+<dt>
+  <strong>问题:</strong>
   <%= @exercise.question%>
+</dt>
 </p>
 <form action="/courses/<%= @exercise.course_id %>/exercises/<%= @exercise.id %>/check" method="post">
 <p>
-  <strong>A:</strong>
-  <textarea cols="40" id="attempt" name="attempt"></textarea>
+  <strong>答案:</strong><br>
+  <textarea cols="80" rows="10" id="attempt" name="attempt"></textarea>
 </p>
-<button>提交答案</button>
+<button class="confirm">提交答案</button>
 </form>
+</div>

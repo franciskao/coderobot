@@ -1,36 +1,113 @@
-
 <% content_for :head do %>
    <link rel="stylesheet" type="text/css" href="/assets/courses.css.scss" />
    <script type="text/javascript" src="/assets/jquery.min.js"></script>
+   <link href="/assets/video-js.css" rel="stylesheet">
+   <script src="/assets/video.js"></script>
+    <link href="/assets/welcome/main.css" rel="stylesheet" type="text/css" />
 <% end %>
-<p>
-  <strong>标题</strong>
-  <%= @course.title %>
-</p>
-<p>
-  <strong>简介</strong>
-  <%= @course.intro %>
-</p>
-<div id="videoFrame"><iframe id="videoUrl"></iframe></div>
-<%= render @course.videos %>
-<%= render @course.quizzes %>
-<%= render @course.exercises %>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?uid=1364781260702316&move=0&amp;btn=r1.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<div align="center">
+    <div id="header"><a href="/"><img src ="/assets/welcome/header_1.gif" border="0" usemap="#Map"></a>
+      <map name="Map" id="Map">
+        <area shape="rect" coords="838,6,915,44" href="/users/new" />
+        <area shape="rect" coords="924,11,985,43" href="/users" />
+      </map>
+    </div>
+  <div id="video_login">
+      <div id="quiz_panel">
+        <a id="quiz_quit" onClick="hideQuiz();">close</a>
+        <iframe id="quiz_iframe"></iframe>
+      </div>
+      <div id="video_login_source">
+          <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="600" height="410" poster="/assets/welcome/my_video_poster.png">
+         <source src="http://mov.bn.netease.com/movieMP4/2013/4/7/F/S8SCNR77F.mp4" type='video/mp4'>
+        </video>
+         <!-- <iframe id="videoUrl"></iframe>-->
+      </div>
+  </div>
+  <div id="login_backgroud">
+    <div id="login_content">
+          <li><%=@course.title %> </li>
+            <div class="list_li">
+              <div id="materials">
+               <% (1..@course.videos.length+@course.quizzes.length+@course.exercises.length).each do |i|%>
+                <div id="task<%= i %>"></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+</div>
+  <div id="footer"><div align="left"><img src="/assets/welcome/about_us.gif"><img src="/assets/welcome/blog.gif"></div>
+  </div>
+</div>
+<%= javascript_tag do %>
+  current=1
+  videos=<%=raw @course.videos.to_json %>;
+  quizzes=<%=raw @course.quizzes.to_json %>;
+  exercises=<%=raw @course.exercises.to_json %>;
+<% end %>
 <script type="text/javascript">
-$(function() {});
-function showVideo(url){
-  $("#videoFrame").show();
-  $("#videoUrl").attr('src',url); 
-}
-function hideVideo(){
-  $("#videoFrame").hide();
+$(document).ready(function() { 
+  hideQuiz();
+  for (var i=0;i<videos.length;i++){
+    var taskName="#task"+videos[i].orderNum;
+    $(taskName).append(
+    '<table width="700" border="0" cellpadding="0" cellspacing="0"><tr><td width="122" rowspan="2"><a href="javascript:showVideo('+i+')"><img src="/assets/course/icon_play.gif" width="64" height="51" /></a></td><td width="158"> <p>&nbsp;</p> <p>'+videos[i].title+'</p></td> <td width="176" height="28" align="center"><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /></td><td width="102">10</td><td width="142"><img src="/assets/course/thumb upBig-upNew.png" width="30" height="27" /></td></tr> <tr> <td width="158">15分钟 播放xx次</td> <td>你有<span class="Color_Yellow"> 3</span> 个好友观看了视频</td> <td width="102">20</td><td width="142"><img src="/assets/course/thumb upBig-DownNew.png" width="30" height="27" /></td></tr> </table>');
+  }
+   for (var i=0;i<quizzes.length;i++){
+    var taskName="#task"+quizzes[i].orderNum;
+   $(taskName).append(
+    '<table width="700" border="0" cellpadding="0" cellspacing="0"><tr><td width="122" rowspan="2"><a href="javascript:showQuiz('+i+')"><img src="/assets/course/icon_next.gif" width="64" height="51" /></a></td><td width="158"> <p>&nbsp;</p> <p>小测验'+(i+1)+'</p></td> <td width="176" height="28" align="center"><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /></td><td width="102">10</td><td width="142"><img src="/assets/course/thumb upBig-upNew.png" width="30" height="27" /></td></tr> <tr> <td width="158">15分钟 播放xx次</td> <td>你有<span class="Color_Yellow"> 3</span> 个好友观看了视频</td> <td width="102">20</td><td width="142"><img src="/assets/course/thumb upBig-DownNew.png" width="30" height="27" /></td></tr> </table>');
+  }
+   for (var i=0;i<exercises.length;i++){
+    var taskName="#task"+exercises[i].orderNum;
+   $(taskName).append(
+    '<table width="700" border="0" cellpadding="0" cellspacing="0"><tr><td width="122" rowspan="2"><a href="javascript:showExercise('+i+')"><img src="/assets/course/icon_next.gif" width="64" height="51" /></a></td><td width="158"> <p>&nbsp;</p> <p>玩代码'+(i+1)+'</p></td> <td width="176" height="28" align="center"><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /><img src="/assets/course/Star_FullSelected.png" width="20" height="18" /></td><td width="102">10</td><td width="142"><img src="/assets/course/thumb upBig-upNew.png" width="30" height="27" /></td></tr> <tr> <td width="158">15分钟 播放xx次</td> <td>你有<span class="Color_Yellow"> 3</span> 个好友观看了视频</td> <td width="102">20</td><td width="142"><img src="/assets/course/thumb upBig-DownNew.png" width="30" height="27" /></td></tr> </table>');
+  }
+});
 
+function showNext(){
+  for( var i=0;i<videos.length;i++){
+    if(videos[i].orderNum==(current+1)){
+      showVideo(i); 
+    }
+  } 
+  for( var i=0;i<quizzes.length;i++){
+    if(quizzes[i].orderNum==(current+1)){
+      showQuiz(i);
+    }
+  }
+  for( var i=0;i<exercises.length;i++){
+    if(exercises[i].orderNum==(current+1)){
+      showExercise(i);
+    }
+  }
+  showLast()
 }
-function showQuiz(url){
-  $("#videoFrame").show();
-  $("#videoUrl").attr('src',document.URL+'/quizzes/'+url); 
+function showLast(){
+  console.log("finished");
 }
-function showExercise(url){
-  $("#videoFrame").show();
-  $("#videoUrl").attr('src',document.URL+'/exercises/'+url); 
+function hideQuiz(){
+  $("#quiz_panel").hide();
+}
+function showVideo(i){
+  hideQuiz();
+  var myPlayer = _V_("my_video_1");
+   _V_("my_video_1").ready(function(){
+      var myPlayer = this;
+      myPlayer.src(videos[i].url);
+      myPlayer.play();
+
+    });
+   current = videos[i].orderNum;
+}
+function showQuiz(i){
+  $("#quiz_panel").show();
+  $("#quiz_iframe").attr('src', '/courses/'+quizzes[i].course_id+'/quizzes/'+quizzes[i].id);
+}
+function showExercise(i){ 
+  $("#quiz_panel").show();
+  $("#quiz_iframe").attr('src', '/courses/'+exercises[i].course_id+'/exercises/'+exercises[i].id);
 }
 </script>

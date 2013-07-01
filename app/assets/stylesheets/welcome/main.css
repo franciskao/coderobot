@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+/* 存放标准样式，禁止修改 */
+*{
+margin:0;
+padding:0;
+}
+#materials{
+	margin-left:100px;
+	overflow: scroll;
+}
+
+body{
+font-family: "Lucida Grande", Verdana, Lucida, Arial, Helvetica, "宋体",sans-serif;
+font-size:12px;
+color:#000;
+padding-top:5px;
+padding-left:5px;
+}
+.confirm{
+ left:200px;
+ background-color: rgba(0,0,255,0.4);
+ border:none;
+ width:100px;
+ height:40px;
+}
+
+a{
+color:#03319A;
+text-decoration:none;
+}
+a:hover{
+color:#0000ff;
+}
+
+/*a:visited{
+color:#810081;
+}*/
+
+a.div_close{
+display:block;
+width:15px;
+height:15px;
+border:1px solid #D2E2FC;
+}
+
+a.div_close:hover{
+display:block;
+border:1px solid #b6c5d8;
+}
+
+select{
+background-color:#efefef;
+border:1px solid #9d9d9d;
+/*height:20px;*/
+}
+
+input,textarea { 
+padding-left:2px;
+}
+#header {
+width:1000px;
+background-color:#000;
+}
+#header {
+width:1000px;
+background-color:#000;
+}
+#KeyVisual{
+width:1000px;
+background-color:#dadada;	
+height:289px;
+}
+#video_login{
+width:1000px;
+background-color:#dadada;	
+height:593px;
+background: url(/assets/welcome/video_background.gif)
+}
+#video_login_source {
+	padding-top:60px;	
+}
+#login_backgroud{
+width:1000px;
+background-color:#404c5b;		
+	}
+#login_content {
+	background-image:url(/assets/welcome/login_background.gif); 
+	height:376px;
+	overflow: scroll;
+	}	
+#login_backgroud li {
+	list-style-type:none;
+	padding:20px;
+	text-align:left;
+	color:#FFF;
+	font-size:14px;
+	font-weight:bold;
+	}	
+#login_backgroud dt {
+	list-style-type:none;
+	padding:20px;
+	text-align:left;
+	color:#FFF;
+	width:832px;
+	background:#000;
+	}		
+#login_t {
+	padding-top:50px;
+	width:389px;
+	align:center;
+	color:#b2b7bd;
+	}	
+#share {text-align:left
+	}	
+.list_li {
+	list-style-type:none;
+	padding:20px;
+	text-align:left;
+	color:#dfdfdf;
+	width:832px;
+	}
+.submitButton{
+	width:100px;
+	color:#ffffff;
+}
+#quiz dt{
+	list-style-type:none;
+	padding-top:40px;
+	padding-left:10px;
+	padding-bottom:40px;
+	text-align:left;
+	color:#8a8080;
+	font-size:24px;
+	}	
+#quiz_content{
+	width:550px;
+	height:400px;
+	background: url(/assets/welcome/quiz_content_bg.gif)
+	}	
+#quiz_content dt{
+	font-size:24px;
+	padding-top:10px;
+	font-weight: bold;
+	}	
+#quiz_content ul{
+	padding-left:60px;
+	}			
+#quiz_content li{
+	list-style-type:upper-alpha;
+	 color:#4e82b4;
+	 font-size:16px;
+	 padding-top:25px;
+	}	
+#btn_quiz_next {
+	text-align:right;padding-right:169px;
+	}	
+#footer{
+width:1000px;
+background-color:#dadada;	
+height:82px;	
+}

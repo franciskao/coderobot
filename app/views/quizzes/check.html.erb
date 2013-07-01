@@ -2,4 +2,8 @@
    <link rel="stylesheet" type="text/css" href="/assets/exercises.css.scss" />
    <script type="text/javascript" src="/assets/jquery.min.js"></script>
 <% end %>
-<%=@result%>
+<% if @result%>
+<img width="400px" src="/assets/quiz/t.png">
+<%else%>
+<img width="400px" src="/assets/quiz/f.png">
+<%end%>

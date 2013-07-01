@@ -1,0 +1,63 @@
+<% content_for :head do %>
+   <link rel="stylesheet" type="text/css" href="/assets/courses.css.scss" />
+   <script type="text/javascript" src="/assets/jquery.min.js"></script>
+   <link href="/assets/video-js.css" rel="stylesheet">
+   <script src="/assets/video.js"></script>
+    <link href="/assets/welcome/main.css" rel="stylesheet" type="text/css" />
+<% end %>
+<div align="center">
+    <div id="header"><img src ="/assets/welcome/header_1.gif" border="0" usemap="#Map">
+      <map name="Map" id="Map">
+        <area shape="rect" coords="838,6,915,44" href="reg.html" />
+        <area shape="rect" coords="924,11,985,43" href="login.html" />
+      </map>
+    </div>
+	<div id="KeyVisual"><img src ="/assets/welcome/keyvisual.gif" border="0"></div>
+    <div id="login_backgroud"><div style="background-image:url(/assets/welcome/login_background.gif); height:376px;">
+    <div id="login_t">
+    	<%= form_for @user do |f| %>
+	  <% if @user.errors.any? %>
+	  <div id="errorExplanation">
+	    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+	      this user from being saved:</h2>
+	    <ul>
+	    <% @use.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	  <% end %>
+    	<table border="0" cellspacing="0" cellpadding="0" background="/assets/welcome/login_pic.gif" height="162" width="380">
+	  <tr>
+	    <td width="22" height="41">&nbsp;</td>
+	    <td width="142" height="41">机器人名字</td>
+	    <td width="216" height="41"> 
+   			<%= f.text_field :fname %>
+   		</td>
+	    </tr>
+	  <tr>
+	    <td height="42">&nbsp;</td>
+	    <td height="42">用户名</td>
+	    <td height="42"> 
+   		    <%= f.text_field :email %>
+		</td>
+	    </tr>
+	  <tr>
+	    <td height="42">&nbsp;</td>
+	    <td height="42">密码</td>
+	    <td height="42">
+   			<%= f.text_field :password %>
+   		</td>
+	    </tr>
+	  <tr>
+    <td colspan="3"><div align="center" style="color:#736d44">
+      <%= f.submit '开始', :class => 'start_button'%></div></td>
+    </tr>
+    </table>
+	<% end %>
+</div>
+</div>
+</div>
+	<div id="footer"><div align="left"><img src="/assets/welcome/about_us.gif"><img src="/assets/welcome/blog.gif"></div>
+  </div>
+</div>

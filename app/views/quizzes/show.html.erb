@@ -1,8 +1,13 @@
-<p>
-  <strong>选择题:</strong>
-  <%= @quiz.title %>
-</p>
-<form action="/courses/<%= @quiz.course_id %>/quizzes/<%= @quiz.id%>/check" method="post">
-<%= render @quiz.choices %>
-<button>确定</button>
-</form>
+<% content_for :head do %>
+    <link href="/assets/welcome/main.css" rel="stylesheet" type="text/css" />
+<% end %>
+<div id="quiz">
+	<dt> <strong>选择题:</strong><%= @quiz.title %></dt>
+<div id="quiz_content">
+	<form action="/courses/<%= @quiz.course_id %>/quizzes/<%= @quiz.id%>/check" method="post">
+		<ul>
+			<%= render @quiz.choices %> 
+		</ul>
+		<button class="confirm">确定</button>
+	</form>
+</div>  

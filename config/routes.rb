@@ -6,6 +6,7 @@ Coderobot::Application.routes.draw do
     resources :videos
     resources :exercises
   end
+  resources :users
   post '/courses/:course_id/exercises/:exercise_id/check' => 'exercises#check'
   get '/courses/:course_id/exercises/:exercise_id/result' => 'exercises#result'
   post '/courses/:course_id/quizzes/:quiz_id/check' => 'quizzes#check'

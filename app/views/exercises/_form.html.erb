@@ -1,5 +1,9 @@
 <%= form_for([@course,@exercise]) do |f| %>
   <p>
+    <%= f.label :orderNum %><br>
+    <%= f.text_field :orderNum %>
+  </p>
+  <p>
     <%= f.label :question %><br>
     <%= f.text_area :question %>
   </p>
